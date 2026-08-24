@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order - Nana Web Studio</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  padding:20px;
+  font-family:Arial,sans-serif;
+  background:#f5f7fb;
+  color:#111827;
+}
+
+.container{
+  max-width:600px;
+  margin:30px auto;
+}
+
+.box{
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+h1{
+  text-align:center;
+}
+
+p{
+  color:#666;
+  text-align:center;
+}
+
+label{
+  display:block;
+  margin-top:16px;
+  margin-bottom:7px;
+  font-weight:bold;
+}
+
+input,select,textarea{
+  width:100%;
+  padding:13px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  font-size:16px;
+}
+
+textarea{
+  min-height:100px;
+}
+
+button{
+  width:100%;
+  margin-top:25px;
+  padding:15px;
+  border:0;
+  border-radius:12px;
+  background:#111827;
+  color:white;
+  font-size:17px;
+  font-weight:bold;
+}
+
+.back{
+  display:block;
+  text-align:center;
+  margin-top:20px;
+  color:#111827;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<div class="box">
+
+<h1>Pesan Website</h1>
+
+<p>Isi data untuk melakukan pemesanan.</p>
+
+<label>Nama Anda</label>
+<input id="nama" type="text" placeholder="Nama Anda">
+
+<label>Nama Bisnis</label>
+<input id="bisnis" type="text" placeholder="Nama bisnis">
+
+<label>Pilih Paket</label>
+<select id="paket">
+<option>Basic - Rp49.000</option>
+<option>Standard - Rp99.000</option>
+<option>Premium - Rp149.000</option>
+</select>
+
+<label>Jenis Website</label>
+<select id="jenis">
+<option>Website Bisnis</option>
+<option>Landing Page</option>
+<option>Website UMKM</option>
+<option>Toko Online</option>
+</select>
+
+<label>Permintaan</label>
+<textarea id="pesan" placeholder="Jelaskan website yang kamu inginkan"></textarea>
+
+<button onclick="kirim()">
+Pesan via WhatsApp
+</button>
+
+<a class="back" href="index.html">
+← Kembali
+</a>
+
+</div>
+</div>
+
+<script>
+function kirim(){
+
+let nama=document.getElementById("nama").value;
+let bisnis=document.getElementById("bisnis").value;
+let paket=document.getElementById("paket").value;
+let jenis=document.getElementById("jenis").value;
+let pesan=document.getElementById("pesan").value;
+
+if(nama==="" || bisnis===""){
+alert("Isi nama dan nama bisnis terlebih dahulu.");
+return;
+}
+
+let text=
+"Halo Nana Web Studio,%0A%0A"+
+"Saya ingin memesan website.%0A%0A"+
+"Nama: "+encodeURIComponent(nama)+"%0A"+
+"Bisnis: "+encodeURIComponent(bisnis)+"%0A"+
+"Paket: "+encodeURIComponent(paket)+"%0A"+
+"Jenis: "+encodeURIComponent(jenis)+"%0A"+
+"Permintaan: "+encodeURIComponent(pesan || "-");
+
+window.location.href=
+"https://wa.me/6283867351344?text="+text;
+
+}
+</script>
+
+</body>
+</html>
