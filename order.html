@@ -152,10 +152,7 @@ window.location.href=
 const params = new URLSearchParams(window.location.search);
 const paket = params.get("paket");
 
-if (paket) {
-    document.getElementById("paket").value = paket;
-}
+document.getElementById("paket").value = paket || "";
 </script>
-
 </body>
 </html>
