@@ -94,12 +94,9 @@ button{
 <label>Nama Bisnis</label>
 <input id="bisnis" type="text" placeholder="Nama bisnis">
 
-<label>Pilih Paket</label>
-<select id="paket">
-    <option value="Basic">Basic</option>
-    <option value="Standard">Standard</option>
-    <option value="Premium">Premium</option>
-</select>
+<label>Paket yang dipilih</label>
+
+<input type="text" id="paket" readonly>
 
 
 <label>Jenis Website</label>
@@ -150,6 +147,13 @@ let text=
 window.location.href=
 "https://wa.me/6283867351344?text="+text;
 
+}
+<script>
+const params = new URLSearchParams(window.location.search);
+const paket = params.get("paket");
+
+if (paket) {
+    document.getElementById("paket").value = paket;
 }
 </script>
 
